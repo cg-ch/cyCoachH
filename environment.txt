@@ -1,0 +1,6 @@
+fastembed 
+rank_bm25 
+rich 
+anthropic 
+openai 
+python-dotenv
