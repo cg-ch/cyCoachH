@@ -4,6 +4,7 @@ import os
 import sys
 import requests
 import websockets
+from datetime import datetime
 from pathlib import Path
 from rich.console import Console
 from dotenv import load_dotenv
@@ -15,8 +16,11 @@ sys.path.append(str(PROJECT_ROOT))
 
 try:
     from memory.ingest import MemorySystem
+    from skills.weather import get_current_weather
+    # REPLACED: runalyze -> endurain
+    from skills.endurain import calculate_metrics
 except ImportError:
-    print("Error: Could not import 'memory.ingest'.")
+    print("Error: Could not import internal modules. Check folder structure.")
     sys.exit(1)
 
 # --- Configuration ---
@@ -39,9 +43,10 @@ class RobustGateway:
         self.bot_user_id = None
         self.session = requests.Session()
         self.session.headers.update({"Authorization": f"Bearer {MM_TOKEN}"})
+        self.processed_posts = set()
 
     def get_bot_id(self):
-        """Get self ID via REST API to avoid replying to self."""
+        """Get self ID via REST API."""
         try:
             r = self.session.get(f"{BASE_API}/users/me")
             r.raise_for_status()
@@ -67,19 +72,35 @@ class RobustGateway:
             console.print(f"[red]Failed to send reply: {e}[/red]")
 
     def think(self, user_query):
-        """Brain logic."""
+        """Brain logic with Endurain integration."""
+        now_str = datetime.now().strftime("%A, %Y-%m-%d %H:%M")
+        weather_str = get_current_weather()
+        
+        # Calculate Training Status via Endurain
+        endurain_str = calculate_metrics()
+        
         hits = self.mem.search(user_query, limit=2)
         context = "\n".join([f"- {h['content'][:200]}" for h in hits])
         
         prompt = f"""
-        You are cyCoachH (via Mattermost).
-        [CONTEXT]
+        You are cyCoachH, powered by the Endurain engine.
+        [SYSTEM STATUS]
+        Time: {now_str}
+        Weather: {weather_str}
+        
+        [ENDURAIN METRICS]
+        {endurain_str}
+        
+        [CONTEXT FROM MEMORY]
         {context}
-        [QUERY]
+        
+        [USER QUERY]
         {user_query}
         
         Reply concisely. Use Markdown.
+        If advising on training, strictly follow the Coach's advice in the metrics above.
         """
+        
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[{"role": "user", "content": prompt}],
@@ -93,7 +114,6 @@ class RobustGateway:
         
         async for websocket in websockets.connect(WS_URL):
             try:
-                # 1. Authenticate WebSocket
                 auth_payload = {
                     "seq": 1,
                     "action": "authentication_challenge",
@@ -102,36 +122,28 @@ class RobustGateway:
                 await websocket.send(json.dumps(auth_payload))
                 console.print("[green]WebSocket Connected & Authenticating...[/green]")
 
-                # 2. Listen Loop
                 async for message in websocket:
                     data = json.loads(message)
-
-                    # Handshake confirmation
                     if data.get('event') == 'hello':
-                        console.print("[bold green]Gateway Active: Listening for events...[/bold green]")
+                        console.print("[bold green]Gateway Active: Listening...[/bold green]")
                         continue
-
-                    # Filter for posted messages
                     if data.get('event') != 'posted':
                         continue
 
                     post = json.loads(data['data']['post'])
+                    post_id = post['id']
+                    if post_id in self.processed_posts: continue
+                    self.processed_posts.add(post_id)
+                    if len(self.processed_posts) > 100: self.processed_posts.pop()
+                    
+                    if post.get('user_id') == self.bot_user_id: continue
 
-                    # Ignore self
-                    if post.get('user_id') == self.bot_user_id:
-                        continue
-
-                    # Logic: DM or Mention
                     msg_text = post.get('message', '')
-                    channel_type = data['data'].get('channel_type') # D = Direct Message
+                    channel_type = data['data'].get('channel_type')
                     
                     if channel_type == 'D' or "@cycoach" in msg_text.lower():
                         console.print(f"[yellow]Incoming: {msg_text}[/yellow]")
-                        
-                        # Process
                         reply = self.think(msg_text)
-                        
-                        # Respond via REST (easier than WS)
                         self.send_reply(post['channel_id'], reply, post['id'])
 
             except websockets.ConnectionClosed:

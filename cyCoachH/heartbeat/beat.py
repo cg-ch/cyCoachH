@@ -7,14 +7,16 @@ from openai import OpenAI
 from rich.console import Console
 
 # --- Path Setup ---
-# Calculates the project root (cyCoachH/)
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(PROJECT_ROOT))
 
 try:
     from memory.ingest import MemorySystem
+    from skills.weather import get_current_weather
+    # REPLACED: runalyze -> endurain
+    from skills.endurain import calculate_metrics
 except ImportError:
-    print("Error: Could not import 'memory.ingest'.")
+    print("Error: Could not import internal modules. Check skills folder.")
     sys.exit(1)
 
 # --- Configuration ---
@@ -42,15 +44,23 @@ def run_heartbeat():
     mem = MemorySystem()
     current_time = datetime.now().strftime("%A, %Y-%m-%d %H:%M")
     todays_log = get_todays_log()
+    weather_str = get_current_weather()
     
-    context_hits = mem.search("current priorities urgent todo project status", limit=3)
+    # Calculate Fitness/Fatigue using local Endurain engine
+    endurain_str = calculate_metrics()
+    
+    context_hits = mem.search("current priorities urgent todo project status training plan", limit=3)
     context_str = "\n".join([f"- {h['content'][:200]}..." for h in context_hits])
 
     prompt = f"""
-    You are cyCoachH, a proactive assistant on a Debian server.
+    You are cyCoachH, powered by Endurain logic.
     
     [STATUS]
     Time: {current_time}
+    Weather: {weather_str}
+    
+    [ENDURAIN METRICS]
+    {endurain_str}
     
     [RECENT MEMORY]
     {context_str}
@@ -59,7 +69,10 @@ def run_heartbeat():
     {todays_log}
     
     [INSTRUCTIONS]
-    Analyze the situation. Do I need to alert the user or perform an action?
+    Analyze the situation.
+    - Morning Check (06:00-09:00): Review Endurain Status. 
+      * If 'High Fatigue' or TSB < -20, suggest recovery.
+      * If 'Fresh', suggest training adapted to Weather.
     - If nominal, respond "HEARTBEAT_OK".
     - If action needed, provide a short message.
     """
@@ -72,7 +85,7 @@ def run_heartbeat():
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=150
+            max_tokens=200
         )
         
         reply = response.choices[0].message.content.strip()

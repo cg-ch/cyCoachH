@@ -1,0 +1,50 @@
+services:
+  # The Application
+  endurain:
+    image: ghcr.io/endurain-project/endurain:latest
+    container_name: endurain
+    restart: unless-stopped
+    ports:
+      # LAN Access: Bind Host 8080 -> Container 8080
+      - "0.0.0.0:8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=endurain
+      - DB_USER=endurain
+      - DB_PASSWORD=endurain_secret_password
+      - SECRET_KEY=change_this_to_something_random_and_long
+      
+      # PASTE YOUR KEY HERE
+      - FERNET_KEY=uurwvMwQ010ryQi86pezaMEpI9Gt/t2tTdyS1/QlDvQ=
+      
+      # Host Config for LAN Access
+      - APP_URL=http://192.168.0.20:8080
+      - ENDURAIN_HOST=http://192.168.0.20:8080
+      
+      # --- ADMIN LOGIN CREDENTIALS ---
+      # These create the user on the next restart
+      - FIRST_SUPERUSER=admin@cycoach.com
+      - FIRST_SUPERUSER_PASSWORD=admin
+      
+      # --- STRAVA INTEGRATION ---
+      # Copy these from your ~/cyCoach/.env file
+      - STRAVA_CLIENT_ID=203677
+      - STRAVA_CLIENT_SECRET=91b7e151c1366d6a217d3aaada948c5d18be784f
+      - STRAVA_SYNC_INTERVAL=60
+      
+    depends_on:
+      - db
+    volumes:
+      - ./data:/app/data
+
+  # The Database
+  db:
+    image: postgres:15-alpine
+    container_name: endurain_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=endurain
+      - POSTGRES_PASSWORD=endurain_secret_password
+      - POSTGRES_DB=endurain
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data

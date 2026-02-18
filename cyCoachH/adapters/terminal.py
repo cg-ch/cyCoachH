@@ -10,8 +10,6 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 # --- Path Setup ---
-# Get the absolute path to the project root (cyCoachH/)
-# adapter/terminal.py -> parent -> parent = root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(PROJECT_ROOT))
 
@@ -34,12 +32,9 @@ def save_interaction(user_input, agent_response):
     today = datetime.now().strftime("%Y-%m-%d")
     daily_path = PROJECT_ROOT / "memory/vault/daily" / f"{today}.md"
     
-    # Ensure directory exists
     daily_path.parent.mkdir(parents=True, exist_ok=True)
     
     timestamp = datetime.now().strftime("%H:%M")
-    
-    # Format suitable for Markdown reading
     entry = f"\n\n### Chat [{timestamp}]\n**User:** {user_input}\n\n**cyCoachH:**\n{agent_response}\n"
     
     try:
@@ -67,13 +62,19 @@ def start_terminal_chat():
                 continue
 
             with console.status("[bold green]Thinking...[/bold green]", spinner="dots"):
-                # 1. Search Memory (The "RAG" part)
+                # 1. Search Memory
                 hits = mem.search(user_input, limit=3)
                 context_str = "\n".join([f"- {h['content'][:300]}" for h in hits])
                 
-                # 2. Ask DeepSeek
+                # 2. Get Time
+                now_str = datetime.now().strftime("%A, %Y-%m-%d %H:%M")
+                
+                # 3. Ask DeepSeek
                 system_prompt = f"""
                 You are cyCoachH, a helpful, precise assistant on a Debian Linux system.
+                
+                [SYSTEM TIME]
+                {now_str}
                 
                 [RELEVANT MEMORY]
                 {context_str}
@@ -93,12 +94,12 @@ def start_terminal_chat():
                 
                 reply = response.choices[0].message.content
                 
-                # 3. Display
+                # 4. Display
                 console.print(f"\n[bold magenta]cyCoachH:[/bold magenta]")
                 console.print(Markdown(reply))
                 console.print("\n" + "-"*30)
                 
-                # 4. Auto-Journal
+                # 5. Auto-Journal
                 save_interaction(user_input, reply)
 
         except KeyboardInterrupt:

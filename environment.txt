@@ -4,3 +4,6 @@ rich
 anthropic 
 openai 
 python-dotenv
+mattermostdriver
+websockets
+requests
