@@ -53,35 +53,35 @@ def run_heartbeat():
     context_str = "\n".join([f"- {h['content'][:200]}..." for h in context_hits])
 
     prompt = f"""
-    You are cyCoachH, powered by Endurain logic.
+    Du bist cyCoachH, angetrieben durch Endurain-Logik.
     
     [STATUS]
-    Time: {current_time}
-    Weather: {weather_str}
+    Zeit: {current_time}
+    Wetter: {weather_str}
     
-    [ENDURAIN METRICS]
+    [ENDURAIN-METRIKEN]
     {endurain_str}
     
-    [RECENT MEMORY]
+    [AKTUELLE ERINNERUNGEN]
     {context_str}
     
-    [TODAY'S LOGS]
+    [HEUTIGE LOGS]
     {todays_log}
     
-    [INSTRUCTIONS]
-    Analyze the situation.
-    - Morning Check (06:00-09:00): Review Endurain Status. 
-      * If 'High Fatigue' or TSB < -20, suggest recovery.
-      * If 'Fresh', suggest training adapted to Weather.
-    - If nominal, respond "HEARTBEAT_OK".
-    - If action needed, provide a short message.
+    [ANWEISUNGEN]
+    Analysiere die Situation.
+    - Morgendliche Prüfung (06:00-09:00): Prüfe den Endurain-Status.
+      * Bei 'Hoher Ermüdung' oder TSB < -20 schlage Erholung vor.
+      * Bei 'Frisch' schlage ein an das Wetter angepasstes Training vor.
+    - Wenn alles nominal ist, antworte mit "HEARTBEAT_OK".
+    - Falls Handlungsbedarf besteht, gib eine kurze Nachricht.
     """
 
     try:
         response = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
-                {"role": "system", "content": "You are a concise system automation agent."},
+                {"role": "system", "content": "Du bist ein prägnanter Systemautomatisierungs-Agent."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,

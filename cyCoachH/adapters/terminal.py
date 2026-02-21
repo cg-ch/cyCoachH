@@ -71,16 +71,16 @@ def start_terminal_chat():
                 
                 # 3. Ask DeepSeek
                 system_prompt = f"""
-                You are cyCoachH, a helpful, precise assistant on a Debian Linux system.
-                
-                [SYSTEM TIME]
+                Du bist cyCoachH, ein hilfreicher, präziser Assistent auf einem Debian-Linux-System.
+
+                [SYSTEMZEIT]
                 {now_str}
-                
-                [RELEVANT MEMORY]
+
+                [RELEVANTE ERINNERUNGEN]
                 {context_str}
-                
-                [INSTRUCTION]
-                Answer the user's query. Be concise. If the memory provides specific details, cite them.
+
+                [ANWEISUNG]
+                Beantworte die Anfrage des Nutzers. Sei knapp. Wenn die Erinnerung spezifische Details liefert, zitiere sie.
                 """
                 
                 response = client.chat.completions.create(

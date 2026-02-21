@@ -1,31 +1,27 @@
 # USER.md
 
-## Personal Information
-- **Age:** 55 years  
-- **Gender:** Male  
-- **Height:** 175 cm  
-- **Health Status:** Healthy  
+## Persönliche Informationen
+- **Alter:** 55 Jahre  
+- **Geschlecht:** Männlich  
+- **Größe:** 175 cm  
+- **Gesundheitszustand:** Gesund  
 
-## Location
-- **City:** Chur  
-- **Country:** Switzerland  
+## Standort
+- **Stadt:** Chur  
+- **Land:** Schweiz  
 
-## Lifestyle & Habits
-- **Physical Activity:**  
-  - Jogging  
-  - Mountain Biking  
-  - Swimming  
+## Lebensstil & Gewohnheiten
+- **Körperliche Aktivität:** - Joggen  
+  - Mountainbiken  
+  - Schwimmen  
   - Trekking  
-  - Telemark Skiing  
-  - Walking  
-- **Footwear Preference:** Barefoot shoes for running and trekking  
-- **Substance Use:**  
-  - No alcohol  
-  - No smoking  
-  - No medical drugs  
-- **Daily Schedule:** Fully self-managed; flexible routine  
+  - Telemark-Skifahren  
+  - Gehen / Wandern  
+- **Bevorzugtes Schuhwerk:** Barfußschuhe zum Laufen und Trekking  
+- **Konsumverhalten:** - Kein Alkohol  
+  - Kein Rauchen  
+  - Keine Medikamente  
+- **Tagesablauf:** Komplett selbstbestimmt; flexible Routine  
 
-## Personal Principles
-- Emphasis on **physical fitness, mobility, and endurance**  
-- Prioritizes **natural movement and outdoor activity**  
-- Maintains **discipline, health, and autonomy** in daily life  
+## Persönliche Prinzipien
+- Fokus auf **körperliche Fitness, Mobilität und Ausdauer** - Priorisiert **natürliche Bewegung und Outdoor-Aktivitäten** - Bewahrt **Disziplin, Gesundheit und Autonomie** im Alltag

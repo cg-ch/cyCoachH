@@ -1,137 +1,120 @@
 # MEMORY.md
 
-## Primary Objective
-Prepare the user to successfully complete a full Ironman triathlon by Summer 2029.
+## Hauptziel
+Den Benutzer darauf vorbereiten, bis Sommer 2029 erfolgreich einen vollständigen Ironman-Triathlon zu absolvieren.
 
-This includes progressive development in:
-- Cardiovascular endurance
-- Muscular strength and durability
-- Structural resilience (especially feet, calves, tendons)
-- Efficient recovery and injury prevention
-- Mental endurance and discipline
+Dies beinhaltet eine schrittweise Entwicklung in folgenden Bereichen:
+* Herz-Kreislauf-Ausdauer
+* Muskelkraft und Belastbarkeit
+* Strukturelle Widerstandsfähigkeit (insbesondere Füße, Waden, Sehnen)
+* Effiziente Erholung und Verletzungsprävention
+* Mentale Ausdauer und Disziplin
 
-All progressions must prioritize longevity, consistency, and injury-free adaptation.
+Alle Fortschritte müssen Langlebigkeit, Konsistenz und eine verletzungsfreie Anpassung priorisieren.
 
----
+## Aktuelle Ausgangsbasis (Februar 2026)
 
-## Current Baseline (February 2026)
+### Wöchentliche Trainingskapazität
+* Aktuelles Volumen: 2–3 Stunden pro Woche
+* Niveau: Unteres mittleres Level (Low-intermediate)
+* Priorität: schrittweise Steigerung ohne Überlastung
 
-### Weekly Training Capacity
-- Current volume: 2–3 hours per week
-- Level: Low-intermediate
-- Priority: gradual progression without overload
+### Leistungskennzahlen
 
-### Performance Metrics
+**Mountainbiken**
+* Höhenmeter: 500 m
+* Distanz: 5 km
+* Zeit: 40 Minuten
+* Notizen: ausreichende Kletterkapazität, erfordert Ausbau der Ausdauer
 
-**Mountain Biking**
-- Elevation gain: 500 m
-- Distance: 5 km
-- Time: 40 minutes
-- Notes: adequate climbing capacity, requires endurance expansion
+**Trailrunning**
+* Distanz: 7,5 km
+* Höhenmeter: ±200 m
+* Zeit: 1:05
+* Schuhwerk: ausschließlich Barfußschuhe
+* Einschränkung: Muskelkater in den Waden aufgrund der Anpassungsphase
+* Priorität: langsame strukturelle Anpassung von Waden, Achillessehne und Füßen
 
-**Trail Running**
-- Distance: 7.5 km
-- Elevation: ±200 m
-- Time: 1:05
-- Footwear: barefoot shoes only
-- Limitation: sore calves due to adaptation phase
-- Priority: slow structural adaptation of calves, Achilles tendon, and feet
+**Schwimmen**
+* Distanz: 1 km
+* Zeit: 26 Minuten
+* Status: solide Basis, hohes Verbesserungspotenzial durch Technik und Volumen
 
-**Swimming**
-- Distance: 1 km
-- Time: 26 minutes
-- Status: solid baseline, high improvement potential through technique and volume
+## Strukturelle Einschränkungen & Anforderungen
 
----
+**Barfußlauf-Mandat**
+* Das gesamte Lauftraining muss in Barfußschuhen absolviert werden
+* Die Anpassungsgeschwindigkeit muss konservativ sein
+* Die Stärkung von Waden, Achillessehne und Füßen hat höchste Priorität
+* Verletzungsprävention steht über der Geschwindigkeitsentwicklung
 
-## Structural Constraints & Requirements
+**Ressourcen für das Krafttraining**
+* Bodyweight-Training (Körpergewichtstraining) ist die primäre Methode
+* Verfügbare Ausrüstung:
+  * Turnringe
+  * Kurzhanteln
+* Fokusbereiche:
+  * Oberkörperkraft
+  * Rumpfstabilität (Core)
+  * Gelenkstabilität
+  * Haltungskraft
 
-**Barefoot Running Mandate**
-- All running must be performed in barefoot shoes
-- Adaptation speed must be conservative
-- Calf, Achilles, and foot strengthening is a critical priority
-- Injury prevention overrides speed progression
+## Meilensteine
 
-**Strength Training Resources**
-- Bodyweight training is primary method
-- Equipment available:
-  - Gymnastic rings
-  - Dumbbells
-- Focus areas:
-  - Upper body strength
-  - Core stability
-  - Joint stability
-  - Postural strength
+### Meilenstein 1 — Trailrunning-Event
+* Datum: 15. Juni 2026
+* Distanz: 16 km
+* Höhenmeter: 1000 m Auf- und Abstieg
+* Priorität: stark und verletzungsfrei ins Ziel kommen
 
----
+### Meilenstein 2 — Halbmarathon
+* Ziel: Herbst 2026
+* Priorität: sicher in Barfußschuhen absolvieren
 
-## Milestones
+### Meilenstein 3 — Ironman Vorbereitungsphasen
+* 2026: Strukturelle Anpassung und Grundlagenausdauer
+* 2027: Volumenerweiterung und Kraftentwicklung
+* 2028: Leistungsoptimierung und triathlonspezifische Konditionierung
+* 2029: Absolvierung des Ironman
 
-### Milestone 1 — Trail Running Event
-- Date: 15 June 2026
-- Distance: 16 km
-- Elevation: 1000 m up and down
-- Priority: finish strong, injury-free
+## Trainingsprioritäten (Geordnet)
+1. Strukturelle Anpassung an das Barfußlaufen
+2. Entwicklung der aeroben Basis (Zone-2-Dominanz)
+3. Schwimmeffizienz und -ausdauer
+4. Progressive Rad-Ausdauer und Kletterkapazität
+5. Kraftentwicklung für Oberkörper und Rumpf
+6. Verletzungsprävention und Optimierung der Erholung
+7. Langfristige Belastbarkeit und Konsistenz
 
-### Milestone 2 — Half Marathon
-- Target: Autumn 2026
-- Priority: complete safely using barefoot shoes
+## Ziele der Kraftentwicklung
 
-### Milestone 3 — Ironman Preparation Phases
-- 2026: Structural adaptation and base endurance
-- 2027: Volume expansion and strength development
-- 2028: Performance optimization and triathlon-specific conditioning
-- 2029: Ironman completion
+Primär:
+* Zugkraft des Oberkörpers (Ringe)
+* Druckkraft des Oberkörpers
+* Rumpfstabilität und Anti-Rotations-Kraft
+* Integrität und Belastbarkeit der Schultern
 
----
+Sekundär:
+* Widerstandsfähigkeit der Sehnen
+* Gelenkstabilität
+* Haltungsausrichtung
 
-## Training Priorities (Ordered)
+## Operative Anweisungen für den KI-Coach
+* Die Gesamttrainingsbelastung niemals aggressiv erhöhen
+* Konsistenz hat Vorrang vor Intensität
+* Verletzungen um jeden Preis vermeiden
+* Die Barfuß-Anpassung schrittweise und sicher vorantreiben
+* Strukturelle Widerstandsfähigkeit vor Leistungsoptimierung aufbauen
+* Das Training auf das langfristige Ironman-Ziel ausrichten
+* Erholung als Kernkomponente des Fortschritts respektieren
 
-1. Structural adaptation to barefoot running
-2. Aerobic base development (Zone 2 dominance)
-3. Swimming efficiency and endurance
-4. Progressive cycling endurance and climbing capacity
-5. Upper body and core strength development
-6. Injury prevention and recovery optimization
-7. Long-term durability and consistency
+## Überwachungsanforderungen
 
----
+Verfolgen und anpassen basierend auf:
+* Wadenkater und Zustand der Füße
+* Ermüdungsgrad
+* Qualität der Erholung
+* Trainingskonsistenz
+* Leistungstrends
 
-## Strength Development Goals
-
-Primary:
-- Upper body pulling strength (rings)
-- Upper body pushing strength
-- Core stability and anti-rotation strength
-- Shoulder integrity and durability
-
-Secondary:
-- Tendon resilience
-- Joint stability
-- Postural alignment
-
----
-
-## Operational Directives for AI Coach
-
-- Never increase total training load aggressively
-- Prioritize consistency over intensity
-- Prevent injury at all costs
-- Progress barefoot adaptation gradually and safely
-- Build structural resilience before performance optimization
-- Align training with long-term Ironman objective
-- Respect recovery as a core component of progress
-
----
-
-## Monitoring Requirements
-
-Track and adapt based on:
-- Calf soreness and foot condition
-- Fatigue levels
-- Recovery quality
-- Training consistency
-- Performance trends
-
-Adjust training dynamically to ensure sustainable long-term progression.
-
+Das Training dynamisch anpassen, um einen nachhaltigen, langfristigen Fortschritt zu gewährleisten.

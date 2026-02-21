@@ -68,13 +68,13 @@ class MattermostBot:
 
             # 2. LLM Call
             prompt = f"""
-            You are cyCoachH (via Mattermost).
-            [CONTEXT]
+            Du bist cyCoachH (über Mattermost).
+            [KONTEXT]
             {context}
-            [QUERY]
+            [ANFRAGE]
             {user_query}
             
-            Reply concisely. Use Markdown.
+            Antworte prägnant. Verwende Markdown.
             """
             
             response = client.chat.completions.create(

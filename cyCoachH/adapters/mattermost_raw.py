@@ -83,22 +83,22 @@ class RobustGateway:
         context = "\n".join([f"- {h['content'][:200]}" for h in hits])
         
         prompt = f"""
-        You are cyCoachH, powered by the Endurain engine.
-        [SYSTEM STATUS]
-        Time: {now_str}
-        Weather: {weather_str}
-        
-        [ENDURAIN METRICS]
+        Du bist cyCoachH, angetrieben durch die Endurain-Engine.
+        [SYSTEMSTATUS]
+        Zeit: {now_str}
+        Wetter: {weather_str}
+
+        [ENDURAIN-METRIKEN]
         {endurain_str}
-        
-        [CONTEXT FROM MEMORY]
+
+        [KONTEXT AUS DEM GEDÄCHTNIS]
         {context}
-        
-        [USER QUERY]
+
+        [NUTZERANFRAGE]
         {user_query}
-        
-        Reply concisely. Use Markdown.
-        If advising on training, strictly follow the Coach's advice in the metrics above.
+
+        Antworte prägnant. Verwende Markdown.
+        Wenn du Trainingsempfehlungen gibst, halte dich strikt an die Coach-Ratschläge in den obigen Metriken.
         """
         
         response = client.chat.completions.create(
